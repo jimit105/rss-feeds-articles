@@ -27,7 +27,6 @@ RSS_FEEDS = ['https://medium.com/feed/@jimit105',
              'https://mlfromscratch.com/rss/',
              'https://nanonets.com/blog/rss/',
              'https://www.mygreatlearning.com/blog/category/artificial-intelligence/feed/',
-             'https://www.mygreatlearning.com/blog/category/data-science/rss'
              ]
 
 TOP_N = 200
