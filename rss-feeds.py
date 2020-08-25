@@ -52,7 +52,7 @@ def fetch_feeds(feed_url):
 
     for entry in feed.entries:
         if entry.updated_parsed is None:
-            article = '<p><a href="' + entry.link + '">' + entry.title + '</a><br/>' + feed.feed.title + \
+            article = '<p><a href="' + entry.link + '" target="_blank">' + entry.title + '</a><br/>' + feed.feed.title + \
             ' | ' + \
             parse_date(entry.updated).strftime(
                 '%b %d, %I:%M:%S %p %Z') + '</p>'
@@ -60,7 +60,7 @@ def fetch_feeds(feed_url):
             output.append((article, parse_date(entry.updated)))
             
         else:
-            article = '<p><a href="' + entry.link + '">' + entry.title + '</a><br/>' + feed.feed.title + \
+            article = '<p><a href="' + entry.link + '" target="_blank">' + entry.title + '</a><br/>' + feed.feed.title + \
                 ' | ' + \
                 convert_timezone(entry.updated_parsed).strftime(
                     '%b %d, %I:%M:%S %p %Z') + '</p>'
