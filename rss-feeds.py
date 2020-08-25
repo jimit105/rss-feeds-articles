@@ -39,7 +39,7 @@ def fetch_feeds(feed_url):
     output = []
 
     for entry in feed.entries:
-        article = '<p><a href="' + entry.link + '">' + entry.title + '</a><br/>' + feed.feed.title + \
+        article = '<p><a href="' + entry.link + '" target="_blank">' + entry.title + '</a><br/>' + feed.feed.title + \
             ' | ' + \
             convert_timezone(entry.updated_parsed).strftime(
                 '%b %d, %Y %X %Z') + '</p>'
