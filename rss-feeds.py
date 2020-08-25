@@ -25,6 +25,8 @@ RSS_FEEDS = ['https://www.pyimagesearch.com/feed/',
              'https://www.analyticsvidhya.com/feed/'
              ]
 
+TOP_N = 200
+
 
 def convert_timezone(datetime_struct_time):
     dt = datetime.fromtimestamp(time.mktime(datetime_struct_time))
@@ -52,7 +54,7 @@ output = sorted(merged, key=lambda x: x[-1], reverse=True)
 
 
 all_articles = ''
-for article in output:
+for article in output[:TOP_N]:
     all_articles += article[0]
 
 current_time = time.strftime('%b %d, %Y %X %Z', time.localtime())
