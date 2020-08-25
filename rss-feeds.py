@@ -9,11 +9,13 @@ import os
 import itertools
 import feedparser
 import urllib.parse
+import dateutil.parser
 
 os.environ['TZ'] = 'Asia/Kolkata'
 time.tzset()
 
 RSS_FEEDS = ['https://medium.com/feed/@jimit105',
+             'https://jimit105.github.io/pytricks/rss.xml',
              'https://thecodelens.blogspot.com/feeds/posts/default',
              'https://www.pyimagesearch.com/feed/',
              'https://machinelearningmastery.com/feed/',
@@ -32,6 +34,12 @@ RSS_FEEDS = ['https://medium.com/feed/@jimit105',
 TOP_N = 200
 
 
+def parse_date(input_date):
+    dt = dateutil.parser.parse(input_date)
+    dt2 = dt - timedelta(seconds=time.timezone) 
+    return dt2
+  
+
 def convert_timezone(datetime_struct_time):
     dt = datetime.fromtimestamp(time.mktime(datetime_struct_time))
     dt2 = dt - timedelta(seconds=time.timezone)
@@ -43,11 +51,21 @@ def fetch_feeds(feed_url):
     output = []
 
     for entry in feed.entries:
-        article = '<p><a href="' + entry.link + '" target="_blank">' + entry.title + '</a><br/>' + feed.feed.title + \
+        if entry.updated_parsed is None:
+            article = '<p><a href="' + entry.link + '">' + entry.title + '</a><br/>' + feed.feed.title + \
             ' | ' + \
-            convert_timezone(entry.updated_parsed).strftime(
-                '%b %d, %Y %X %Z') + '</p>'
-        output.append((article, convert_timezone(entry.updated_parsed)))
+            parse_date(entry.updated).strftime(
+                '%b %d, %I:%M:%S %p %Z') + '</p>'
+                    
+            output.append((article, parse_date(entry.updated)))
+            
+        else:
+            article = '<p><a href="' + entry.link + '">' + entry.title + '</a><br/>' + feed.feed.title + \
+                ' | ' + \
+                convert_timezone(entry.updated_parsed).strftime(
+                    '%b %d, %I:%M:%S %p %Z') + '</p>'
+                        
+            output.append((article, convert_timezone(entry.updated_parsed)))
 
     return output
 
