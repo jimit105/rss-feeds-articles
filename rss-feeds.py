@@ -37,7 +37,6 @@ def fetch_feeds(feed_url):
     output = []
 
     for entry in feed.entries:
-        #        article = '<li><a href="' +  + '">' +  + '</a></li>'
         article = '<p><a href="' + entry.link + '">' + entry.title + '</a><br/>' + feed.feed.title + \
             ' | ' + \
             convert_timezone(entry.updated_parsed).strftime(
@@ -57,7 +56,7 @@ for article in output:
     all_articles += article[0]
 
 current_time = time.strftime('%b %d, %Y %X %Z', time.localtime())
-action_badge = '![RSS Feeds Update](https://github.com/jimit105/rss-feeds-articles/workflows/RSS%20Feeds%20Update/badge.svg?branch=master)'
+action_badge = '![RSS Feeds Update](https://github.com/jimit105/rss-feeds-articles/workflows/RSS%20Feeds%20Update/badge.svg)'
 header = action_badge + '\n![Last Updated](https://img.shields.io/badge/Last%20Updated%20on-' + \
     urllib.parse.quote(current_time) + '-brightgreen)' + '\n\n'
 
