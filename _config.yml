@@ -1,1 +1,10 @@
 theme: jekyll-theme-cayman
+google_analytics: UA-136790987-1
+title: RSS Feeds Articles
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+github:
+  is_project_page: false
