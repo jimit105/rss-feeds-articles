@@ -55,6 +55,7 @@ def fetch_feeds(feed_url):
 
 result = list(map(fetch_feeds, RSS_FEEDS))
 merged = list(itertools.chain(*result))
+merged = list(set(merged))
 output = sorted(merged, key=lambda x: x[-1], reverse=True)
 
 
