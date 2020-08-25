@@ -13,16 +13,21 @@ import urllib.parse
 os.environ['TZ'] = 'Asia/Kolkata'
 time.tzset()
 
-RSS_FEEDS = ['https://www.pyimagesearch.com/feed/',
-             'https://medium.com/feed/@jimit105',
+RSS_FEEDS = ['https://medium.com/feed/@jimit105',
+             'https://thecodelens.blogspot.com/feeds/posts/default',
+             'https://www.pyimagesearch.com/feed/',
              'https://machinelearningmastery.com/feed/',
              'https://www.fast.ai/atom.xml',
-             'https://openai.com/blog/rss/',
-             'https://thecodelens.blogspot.com/feeds/posts/default',
+             'https://openai.com/blog/rss/',             
              'https://research.fb.com/feed/',
              'http://googleaiblog.blogspot.com/atom.xml',
              'https://blogs.microsoft.com/ai/feed/',
-             'https://www.analyticsvidhya.com/feed/'
+             'https://www.analyticsvidhya.com/feed/',
+             'https://www.hackerearth.com/blog/machine-learning/feed',
+             'https://mlfromscratch.com/rss/',
+             'https://nanonets.com/blog/rss/',
+             'https://www.mygreatlearning.com/blog/category/artificial-intelligence/feed/',
+             'https://www.mygreatlearning.com/blog/category/data-science/rss'
              ]
 
 TOP_N = 200
