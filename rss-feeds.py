@@ -14,6 +14,8 @@ import dateutil.parser
 os.environ['TZ'] = 'Asia/Kolkata'
 time.tzset()
 
+TIME_FMT = '%b %d, %Y %H:%M:%S %Z'
+
 RSS_FEEDS = ['https://medium.com/feed/@jimit105',
              'https://jimit105.github.io/pytricks/rss.xml',
              'https://thecodelens.blogspot.com/feeds/posts/default',
@@ -55,7 +57,7 @@ def fetch_feeds(feed_url):
             article = '<p><a href="' + entry.link + '" target="_blank">' + entry.title + '</a><br/>' + feed.feed.title + \
             ' | ' + \
             parse_date(entry.updated).strftime(
-                '%b %d, %I:%M:%S %p %Z') + '</p>'
+                TIME_FMT) + '</p>'
                     
             output.append((article, parse_date(entry.updated)))
             
@@ -63,7 +65,7 @@ def fetch_feeds(feed_url):
             article = '<p><a href="' + entry.link + '" target="_blank">' + entry.title + '</a><br/>' + feed.feed.title + \
                 ' | ' + \
                 convert_timezone(entry.updated_parsed).strftime(
-                    '%b %d, %I:%M:%S %p %Z') + '</p>'
+                    TIME_FMT) + '</p>'
                         
             output.append((article, convert_timezone(entry.updated_parsed)))
 
@@ -80,7 +82,7 @@ all_articles = ''
 for article in output[:TOP_N]:
     all_articles += article[0]
 
-current_time = time.strftime('%b %d, %Y %X %Z', time.localtime())
+current_time = time.strftime(TIME_FMT, time.localtime())
 action_badge = ''
 header = action_badge + '\n![Last Updated](https://img.shields.io/badge/Last%20Updated%20on-' + \
     urllib.parse.quote(current_time) + '-brightgreen)' + '\n\n'
