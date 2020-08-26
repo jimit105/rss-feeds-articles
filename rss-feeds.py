@@ -81,7 +81,7 @@ for article in output[:TOP_N]:
     all_articles += article[0]
 
 current_time = time.strftime('%b %d, %Y %X %Z', time.localtime())
-action_badge = '![RSS Feeds Update](https://github.com/jimit105/rss-feeds-articles/workflows/RSS%20Feeds%20Update/badge.svg)'
+action_badge = ''
 header = action_badge + '\n![Last Updated](https://img.shields.io/badge/Last%20Updated%20on-' + \
     urllib.parse.quote(current_time) + '-brightgreen)' + '\n\n'
 
