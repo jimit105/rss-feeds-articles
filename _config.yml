@@ -8,3 +8,17 @@ plugins:
 
 github:
   is_project_page: false
+  
+twitter:
+  username: jimit105
+  card: summary
+  
+social:
+  name: Jimit Dholakia
+  links:
+    - https://www.linkedin.com/in/jimit105/
+    - https://github.com/jimit105
+    - https://medium.com/@jimit105
+    
+author:
+  twitter: jimit105
