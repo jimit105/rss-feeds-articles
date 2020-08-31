@@ -29,7 +29,7 @@ jobs:
         python rss-feeds.py
     
     - name: Deploy
-      if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+      if: github.event_name != 'pull_request'
       run: |
           git diff --name-only --exit-code && exit 0
           git config user.name "${GITHUB_ACTOR}"
