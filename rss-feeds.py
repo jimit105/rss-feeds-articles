@@ -10,9 +10,11 @@ import itertools
 import feedparser
 import urllib.parse
 import dateutil.parser
+from tqdm import tqdm
 
 os.environ['TZ'] = 'Asia/Kolkata'
-time.tzset()
+if os.name != 'nt':
+    time.tzset()
 
 TIME_FMT = '%b %d, %Y %H:%M:%S %Z'
 
@@ -22,7 +24,7 @@ RSS_FEEDS = ['https://medium.com/feed/@jimit105',
              'https://www.pyimagesearch.com/feed/',
              'https://machinelearningmastery.com/feed/',
              'https://www.fast.ai/atom.xml',
-             'https://openai.com/blog/rss/',             
+             'https://openai.com/blog/rss/',
              'https://research.fb.com/feed/',
              'http://googleaiblog.blogspot.com/atom.xml',
              'https://blogs.microsoft.com/ai/feed/',
@@ -38,9 +40,9 @@ TOP_N = 200
 
 def parse_date(input_date):
     dt = dateutil.parser.parse(input_date)
-    dt2 = dt - timedelta(seconds=time.timezone) 
+    dt2 = dt - timedelta(seconds=time.timezone)
     return dt2
-  
+
 
 def convert_timezone(datetime_struct_time):
     dt = datetime.fromtimestamp(time.mktime(datetime_struct_time))
@@ -49,30 +51,36 @@ def convert_timezone(datetime_struct_time):
 
 
 def fetch_feeds(feed_url):
-    feed = feedparser.parse(feed_url)
-    output = []
+    try:
+        feed = feedparser.parse(feed_url)
+        output = []
 
-    for entry in feed.entries:
-        if entry.updated_parsed is None:
-            article = '<p><a href="' + entry.link + '" target="_blank">' + entry.title + '</a><br/>' + feed.feed.title + \
-            ' | ' + \
-            parse_date(entry.updated).strftime(
-                TIME_FMT) + '</p>'
-                    
-            output.append((article, parse_date(entry.updated)))
-            
-        else:
-            article = '<p><a href="' + entry.link + '" target="_blank">' + entry.title + '</a><br/>' + feed.feed.title + \
-                ' | ' + \
-                convert_timezone(entry.updated_parsed).strftime(
-                    TIME_FMT) + '</p>'
-                        
-            output.append((article, convert_timezone(entry.updated_parsed)))
+        for entry in feed.entries:
+            if entry.updated_parsed is None:
+                article = '<p><a href="' + entry.link + '" target="_blank">' + entry.title + '</a><br/>' + feed.feed.title + \
+                    ' | ' + \
+                    parse_date(entry.updated).strftime(
+                        TIME_FMT) + '</p>'
+
+                output.append((article, parse_date(entry.updated)))
+
+            else:
+                article = '<p><a href="' + entry.link + '" target="_blank">' + entry.title + '</a><br/>' + feed.feed.title + \
+                    ' | ' + \
+                    convert_timezone(entry.updated_parsed).strftime(
+                        TIME_FMT) + '</p>'
+
+                output.append(
+                    (article, convert_timezone(entry.updated_parsed)))
+
+    except Exception as e:
+        print('Fetching failed for', feed_url)
+        print('Exception:', str(e))
 
     return output
 
 
-result = list(map(fetch_feeds, RSS_FEEDS))
+result = list(map(fetch_feeds, tqdm(RSS_FEEDS)))
 merged = list(itertools.chain(*result))
 merged = list(set(merged))
 output = sorted(merged, key=lambda x: x[-1], reverse=True)
@@ -85,7 +93,7 @@ for article in output[:TOP_N]:
 current_time = time.strftime(TIME_FMT, time.localtime())
 action_badge = ''
 maintainer_badge = '[![Maintained by Jimit Dholakia](https://img.shields.io/badge/Maintained%20by-Jimit%20Dholakia-blue)](https://www.linkedin.com/in/jimit105/)'
-header = action_badge + '\n' + maintainer_badge +'\n![Last Updated](https://img.shields.io/badge/Last%20Updated%20on-' + \
+header = action_badge + '\n' + maintainer_badge + '\n![Last Updated](https://img.shields.io/badge/Last%20Updated%20on-' + \
     urllib.parse.quote(current_time) + '-brightgreen)' + '\n\n'
 
 
