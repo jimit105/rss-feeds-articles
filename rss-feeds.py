@@ -20,6 +20,7 @@ TIME_FMT = '%b %d, %Y %H:%M:%S %Z'
 RSS_FEEDS = ['https://medium.com/feed/@jimit105',
              'https://jimit105.github.io/pytricks/rss.xml',
              'https://thecodelens.blogspot.com/feeds/posts/default',
+             'https://jimit105.github.io/medium-articles/rss.xml',
              'https://www.pyimagesearch.com/feed/',
              'https://machinelearningmastery.com/feed/',
              'https://www.fast.ai/atom.xml',
@@ -32,7 +33,7 @@ RSS_FEEDS = ['https://medium.com/feed/@jimit105',
              'https://mlfromscratch.com/rss/',
              'https://nanonets.com/blog/rss/',
              'https://www.mygreatlearning.com/blog/category/artificial-intelligence/feed/',
-             'https://jimit105.github.io/medium-articles/rss.xml',
+             'https://blog.tensorflow.org/atom.xml'
              ]
 
 TOP_N = 200
