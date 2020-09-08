@@ -34,7 +34,8 @@ RSS_FEEDS = ['https://medium.com/feed/@jimit105',
              'https://nanonets.com/blog/rss/',
              'https://www.mygreatlearning.com/blog/category/artificial-intelligence/feed/',
              'https://blog.tensorflow.org/atom.xml',
-             'http://feeds.feedburner.com/kdnuggets-data-mining-analytics'
+             'http://feeds.feedburner.com/kdnuggets-data-mining-analytics',
+             'https://lazyprogrammer.me/feed/'
              ]
 
 TOP_N = 200
