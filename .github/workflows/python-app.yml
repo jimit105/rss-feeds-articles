@@ -26,7 +26,7 @@ jobs:
     
     - name: Run code
       run: |
-        python rss-feeds.py
+        python -u rss-feeds.py
     
     - name: Deploy
       if: github.event_name != 'pull_request'
