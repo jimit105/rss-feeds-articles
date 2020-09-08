@@ -19,7 +19,7 @@ TIME_FMT = '%b %d, %Y %H:%M:%S %Z'
 
 RSS_FEEDS = ['https://medium.com/feed/@jimit105',
              'https://jimit105.github.io/pytricks/rss.xml',
-             'https://thecodelens.blogspot.com/feeds/posts/default',
+             'https://scitech105.blogspot.com/rss.xml',
              'https://jimit105.github.io/medium-articles/rss.xml',
              'https://www.pyimagesearch.com/feed/',
              'https://machinelearningmastery.com/feed/',
