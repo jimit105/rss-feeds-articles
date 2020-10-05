@@ -11,6 +11,7 @@ import feedparser
 import urllib.parse
 import dateutil.parser
 import signal
+import sys
 
 os.environ['TZ'] = 'Asia/Kolkata'
 if os.name != 'nt':
