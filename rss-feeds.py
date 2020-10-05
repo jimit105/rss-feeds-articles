@@ -10,6 +10,8 @@ import itertools
 import feedparser
 import urllib.parse
 import dateutil.parser
+import signal
+import sys
 
 os.environ['TZ'] = 'Asia/Kolkata'
 if os.name != 'nt':
@@ -40,6 +42,11 @@ RSS_FEEDS = ['https://medium.com/feed/@jimit105',
 TOP_N = 200
 
 
+def handler(signum, frame):
+    print('Signal handler called with signal', signum)
+    sys.exit('Took too long.. Goodbye!')
+    
+    
 def parse_date(input_date):
     dt = dateutil.parser.parse(input_date)
     dt2 = dt - timedelta(seconds=time.timezone)
@@ -83,8 +90,10 @@ def fetch_feeds(feed_url):
 
     return output
 
-
+signal.signal(signal.SIGALRM, handler)
+signal.alarm(300)
 result = list(map(fetch_feeds, RSS_FEEDS))
+signal.alarm(0)
 merged = list(itertools.chain(*result))
 merged = list(set(merged))
 output = sorted(merged, key=lambda x: x[-1], reverse=True)
