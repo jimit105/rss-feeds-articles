@@ -91,7 +91,7 @@ def fetch_feeds(feed_url):
     return output
 
 signal.signal(signal.SIGALRM, handler)
-signal.alarm(5)
+signal.alarm(300)
 result = list(map(fetch_feeds, RSS_FEEDS))
 signal.alarm(0)
 merged = list(itertools.chain(*result))
