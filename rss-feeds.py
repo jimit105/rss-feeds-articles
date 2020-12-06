@@ -105,7 +105,7 @@ for article in output[:TOP_N]:
 
 current_time = time.strftime(TIME_FMT, time.localtime())
 action_badge = ''
-maintainer_badge = '[![Maintained by Jimit Dholakia](https://img.shields.io/badge/Maintained%20by-Jimit%20Dholakia-yellowgreen)](https://www.linkedin.com/in/jimit105/)'
+maintainer_badge = '[![Maintained by Jimit Dholakia](https://img.shields.io/badge/Maintained%20by-Jimit%20Dholakia-yellowgreen)](https://github.com/jimit105)'
 linkedin_badge = '[![LinkedIn: jimit105](https://img.shields.io/badge/LinkedIn-jimit105-blue)](https://www.linkedin.com/in/jimit105/)'
 header = action_badge + '\n' + maintainer_badge + '\n' + linkedin_badge + '\n![Last Updated](https://img.shields.io/badge/Last%20Updated%20on-' + \
     urllib.parse.quote(current_time) + '-brightgreen)' + '\n\n'
