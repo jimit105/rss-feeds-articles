@@ -105,11 +105,11 @@ for article in output[:TOP_N]:
 
 current_time = time.strftime(TIME_FMT, time.localtime())
 action_badge = ''
-maintainer_badge = '[![Maintained by Jimit Dholakia](https://img.shields.io/badge/Maintained%20by-jimit105-brightgreen =x35)](https://github.com/jimit105)'
-linkedin_badge = '[![LinkedIn: jimit105](https://img.shields.io/badge/LinkedIn-Jimit%20Dholakia-blue =x35)](https://www.linkedin.com/in/jimit105/)'
-medium_badge = '[![Medium: jimit105](https://img.shields.io/badge/Medium-jimit105-orange =x35)](https://jimit105.medium.com/)'
+maintainer_badge = '[![Maintained by Jimit Dholakia](https://img.shields.io/badge/Maintained%20by-jimit105-brightgreen){height=150%}](https://github.com/jimit105)'
+linkedin_badge = '[![LinkedIn: jimit105](https://img.shields.io/badge/LinkedIn-Jimit%20Dholakia-blue){height=150%}](https://www.linkedin.com/in/jimit105/)'
+medium_badge = '[![Medium: jimit105](https://img.shields.io/badge/Medium-jimit105-orange){height=150%}](https://jimit105.medium.com/)'
 header = action_badge + '\n' + maintainer_badge + '\n' + linkedin_badge + '\n' + medium_badge + '\n![Last Updated](https://img.shields.io/badge/Last%20Updated%20on-' + \
-    urllib.parse.quote(current_time) + '-yellowgreen =x35)' + '\n\n'
+    urllib.parse.quote(current_time) + '-yellowgreen){height=150%}' + '\n\n'
 
 
 complete_text = header + all_articles
