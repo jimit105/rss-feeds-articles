@@ -2,6 +2,8 @@ theme: jekyll-theme-cayman
 google_analytics: UA-136790987-1
 title: RSS Feeds Articles
 
+site_favicon: favicon.ico
+
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
