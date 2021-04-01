@@ -39,7 +39,7 @@ RSS_FEEDS = ['https://medium.com/feed/@jimit105',
              'https://lazyprogrammer.me/feed/'
              ]
 
-TOP_N = 200
+TOP_N = 250
 
 
 def handler(signum, frame):
