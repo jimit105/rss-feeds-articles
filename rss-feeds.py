@@ -21,9 +21,7 @@ TIME_FMT = '%b %d, %Y %H:%M:%S %Z'
 
 RSS_FEEDS = ['https://jimit105.medium.com/feed',
              'https://jimit105.substack.com/feed',
-             'https://jimit105.github.io/pytricks/rss.xml',
              'https://scitech105.blogspot.com/rss.xml',
-             'https://jimit105.github.io/medium-articles/rss.xml',
              'https://www.pyimagesearch.com/feed/',
              'https://machinelearningmastery.com/feed/',
              'https://www.fast.ai/atom.xml',
