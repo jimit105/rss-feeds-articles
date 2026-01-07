@@ -107,7 +107,8 @@ action_badge = ''
 maintainer_badge = '[![Maintained by Jimit Dholakia](https://img.shields.io/badge/Maintained%20by-jimit105-brightgreen)](https://github.com/jimit105)'
 linkedin_badge = '[![LinkedIn: jimit105](https://img.shields.io/badge/LinkedIn-Jimit%20Dholakia-blue)](https://www.linkedin.com/in/jimit105/)'
 medium_badge = '[![Medium: jimit105](https://img.shields.io/badge/Medium-jimit105-orange)](https://jimit105.medium.com/)'
-header = action_badge + '\n' + maintainer_badge + '\n' + linkedin_badge + '\n' + medium_badge + '\n![Last Updated](https://img.shields.io/badge/Last%20Updated%20on-' + \
+substack_badge = '[![Substack: jimit105](https://img.shields.io/badge/Substack-jimit105-purple)](https://jimit105.substack.com/)'
+header = action_badge + '\n' + maintainer_badge + '\n' + linkedin_badge + '\n' + substack_badge + '\n' + medium_badge + '\n![Last Updated](https://img.shields.io/badge/Last%20Updated%20on-' + \
     urllib.parse.quote(current_time) + '-yellowgreen)' + '\n\n'
 
 
